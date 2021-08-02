@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, HashRouter } from "react-router-dom";
 import LandingPage from "./components/LandingPage";
 import GroupPage from "./components/GroupPage";
 import { useState } from "react";
@@ -14,40 +14,42 @@ function App() {
   const [location, setLocation] = useState("");
 
   return (
-    <div>
-      {username !== "" && groupName !== "" ? (
-        <GeoLocation
-          username={username}
-          groupName={groupName}
-          location={location}
-          setLocation={setLocation}
-        />
-      ) : null}
+    <HashRouter basename="/">
+      <div>
+        {username !== "" && groupName !== "" ? (
+          <GeoLocation
+            username={username}
+            groupName={groupName}
+            location={location}
+            setLocation={setLocation}
+          />
+        ) : null}
 
-      <GroupContext.Provider value={{ groupName, setGroupName }}>
-        <div className="App">
-          <Switch>
-            <Route exact path="/">
-              <LandingPage
-                setUsername={setUsername}
-                username={username}
-                groupName={groupName}
-                setGroupName={setGroupName}
-              />
-            </Route>
-            <Route exact path="/:group_slug">
-              <GroupPage />
-            </Route>
-            <Route exact path="/:group_slug/map">
-              <Map location={location} />
-            </Route>
-            <Route exact path="/:group_slug/ar">
-              <Marker location={location} />
-            </Route>
-          </Switch>
-        </div>
-      </GroupContext.Provider>
-    </div>
+        <GroupContext.Provider value={{ groupName, setGroupName }}>
+          <div className="App">
+            <Switch>
+              <Route exact path="/">
+                <LandingPage
+                  setUsername={setUsername}
+                  username={username}
+                  groupName={groupName}
+                  setGroupName={setGroupName}
+                />
+              </Route>
+              <Route exact path="/:group_slug">
+                <GroupPage />
+              </Route>
+              <Route exact path="/:group_slug/map">
+                <Map location={location} />
+              </Route>
+              <Route exact path="/:group_slug/ar">
+                <Marker location={location} />
+              </Route>
+            </Switch>
+          </div>
+        </GroupContext.Provider>
+      </div>
+    </HashRouter>
   );
 }
 
