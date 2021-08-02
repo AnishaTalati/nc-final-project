@@ -1,19 +1,19 @@
-import { GroupContext } from '../contexts/groupContext';
-import { useContext, useState, useEffect } from 'react';
-import NavBar from './NavigationBar';
-import { Link, useParams } from 'react-router-dom';
-import { getGroupData } from '../utils/api';
-import Particle from 'react-particles-js';
-import particlesConfig from '../assets/particlesConfig.json';
+import { GroupContext } from "../contexts/groupContext";
+import { useContext, useState, useEffect } from "react";
+import NavBar from "./NavigationBar";
+import { Link, useParams } from "react-router-dom";
+import { getGroupData } from "../utils/api";
+import Particle from "react-particles-js";
+import particlesConfig from "../assets/particlesConfig.json";
 
 const GroupPage = () => {
   const { group_slug } = useParams();
-  const [groupData, setGroupData] = useState('');
+  const [groupData, setGroupData] = useState("");
   const [lookupObj, setLookupObj] = useState([]);
 
   const myStorage = window.localStorage;
-  const groupName = localStorage.getItem('groupName');
-  const username = localStorage.getItem('username');
+  const groupName = localStorage.getItem("groupName");
+  const username = localStorage.getItem("username");
 
   useEffect(() => {
     getGroupData(group_slug).then((response) => {
@@ -24,7 +24,7 @@ const GroupPage = () => {
 
   return (
     <div className="map-page">
-      <div style={{ position: 'relative' }}>
+      <div style={{ position: "relative" }}>
         <Particle height="100vh" width="100vw" params={particlesConfig} />
       </div>
       <NavBar />
@@ -40,10 +40,10 @@ const GroupPage = () => {
         })}
       </ul>
       <div className="button-container">
-        <Link to={`/nc-final-project/${group_slug}/ar`}>
+        <Link to={`/${group_slug}/ar`}>
           <button className="join-button">View in AR</button>
         </Link>
-        <Link to={`/nc-final-project/${group_slug}/map`}>
+        <Link to={`/${group_slug}/map`}>
           <button className="create-button">View in 2D</button>
         </Link>
       </div>
