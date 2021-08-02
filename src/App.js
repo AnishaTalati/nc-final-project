@@ -23,10 +23,10 @@ function App() {
           setLocation={setLocation}
         />
       ) : null}
-      <BrowserRouter>
+      <BrowserRouter basename="/repo-name">
         <GroupContext.Provider value={{ groupName, setGroupName }}>
           <div className="App">
-            <HashRouter>
+            <Switch>
               <Route exact path="/nc-final-project">
                 <LandingPage
                   setUsername={setUsername}
@@ -44,7 +44,7 @@ function App() {
               <Route exact path="/nc-final-project/:group_slug/ar">
                 <Marker location={location} />
               </Route>
-            </HashRouter>
+            </Switch>
           </div>
         </GroupContext.Provider>
       </BrowserRouter>
