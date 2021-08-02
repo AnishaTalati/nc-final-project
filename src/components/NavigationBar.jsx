@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import { showMenu } from '../utils/showMenu';
+import { Link } from "react-router-dom";
+import { showMenu } from "../utils/showMenu";
 
 const NavBar = () => {
   let groupName = localStorage.groupName;
@@ -12,26 +12,26 @@ const NavBar = () => {
 
       <ul>
         <li>
-          <Link to="/nc-final-project" style={{ textDecoration: 'none' }}>
+          <Link to="/nc-final-project/home" style={{ textDecoration: "none" }}>
             Home
           </Link>
         </li>
         <li>
           <Link
             to={`/nc-final-project/${groupName}`}
-            style={{ textDecoration: 'none' }}
+            style={{ textDecoration: "none" }}
           >
             {/* {groupName ? `${groupName}` : "Your Group"} */}
             Your Group
           </Link>
         </li>
         <li>
-          <Link to="/" style={{ textDecoration: 'none' }}>
+          <Link to="/" style={{ textDecoration: "none" }}>
             About
           </Link>
         </li>
         <li>
-          <Link to="/" style={{ textDecoration: 'none' }}>
+          <Link to="/" style={{ textDecoration: "none" }}>
             Contact
           </Link>
         </li>
