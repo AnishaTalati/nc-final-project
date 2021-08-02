@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, HashRouter, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import LandingPage from "./components/LandingPage";
 import GroupPage from "./components/GroupPage";
 import { useState } from "react";
@@ -23,31 +23,30 @@ function App() {
           setLocation={setLocation}
         />
       ) : null}
-      <BrowserRouter basename="/nc-final-project">
-        <GroupContext.Provider value={{ groupName, setGroupName }}>
-          <div className="App">
-            <Switch>
-              <Route exact path="/">
-                <LandingPage
-                  setUsername={setUsername}
-                  username={username}
-                  groupName={groupName}
-                  setGroupName={setGroupName}
-                />
-              </Route>
-              <Route exact path="/:group_slug">
-                <GroupPage />
-              </Route>
-              <Route exact path="/:group_slug/map">
-                <Map location={location} />
-              </Route>
-              <Route exact path="/:group_slug/ar">
-                <Marker location={location} />
-              </Route>
-            </Switch>
-          </div>
-        </GroupContext.Provider>
-      </BrowserRouter>
+
+      <GroupContext.Provider value={{ groupName, setGroupName }}>
+        <div className="App">
+          <Switch>
+            <Route exact path="/">
+              <LandingPage
+                setUsername={setUsername}
+                username={username}
+                groupName={groupName}
+                setGroupName={setGroupName}
+              />
+            </Route>
+            <Route exact path="/:group_slug">
+              <GroupPage />
+            </Route>
+            <Route exact path="/:group_slug/map">
+              <Map location={location} />
+            </Route>
+            <Route exact path="/:group_slug/ar">
+              <Marker location={location} />
+            </Route>
+          </Switch>
+        </div>
+      </GroupContext.Provider>
     </div>
   );
 }
