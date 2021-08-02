@@ -12,15 +12,12 @@ const NavBar = () => {
 
       <ul>
         <li>
-          <Link to="/nc-final-project/" style={{ textDecoration: "none" }}>
+          <Link to="/" style={{ textDecoration: "none" }}>
             Home
           </Link>
         </li>
         <li>
-          <Link
-            to={`/nc-final-project/${groupName}`}
-            style={{ textDecoration: "none" }}
-          >
+          <Link to={`/${groupName}`} style={{ textDecoration: "none" }}>
             {/* {groupName ? `${groupName}` : "Your Group"} */}
             Your Group
           </Link>
