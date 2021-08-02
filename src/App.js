@@ -27,7 +27,7 @@ function App() {
         <GroupContext.Provider value={{ groupName, setGroupName }}>
           <div className="App">
             <Switch>
-              <Route exact path="/nc-final-project/home">
+              <Route exact path="/nc-final-project/">
                 <LandingPage
                   setUsername={setUsername}
                   username={username}
