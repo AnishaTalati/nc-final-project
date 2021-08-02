@@ -23,7 +23,7 @@ function App() {
           setLocation={setLocation}
         />
       ) : null}
-      <BrowserRouter basename="/repo-name">
+      <BrowserRouter basename="/nc-final-project">
         <GroupContext.Provider value={{ groupName, setGroupName }}>
           <div className="App">
             <Switch>
