@@ -9,7 +9,7 @@ import particlesConfig from "../assets/particlesConfig.json";
 
 const LandingPage = ({ setUsername, username, setGroupName, groupName }) => {
   const [error, setError] = useState("");
-  const [groupPageDisabled, setGroupPageDisabled] = useState(true);
+  // const [groupPageDisabled, setGroupPageDisabled] = useState(true);
 
   const geolocation = useGeolocation();
 
@@ -28,7 +28,7 @@ const LandingPage = ({ setUsername, username, setGroupName, groupName }) => {
             geolocation.latitude,
             geolocation.longitude
           );
-          setGroupPageDisabled(false);
+          // setGroupPageDisabled(false);
         } else if (button === "create") {
           setError("That group exists, please try again");
         } else {
@@ -93,13 +93,13 @@ const LandingPage = ({ setUsername, username, setGroupName, groupName }) => {
             Join a Group
           </button>
         </div>
-        {!groupPageDisabled && (
-          <Link to={`/nc-final-project/${groupName}`}>
-            <button className="group-button" id="group-page-button">
-              Group Page
-            </button>
-          </Link>
-        )}
+        {/* {!groupPageDisabled && ( */}
+        <Link to={`/${groupName}`}>
+          <button className="group-button" id="group-page-button">
+            Group Page
+          </button>
+        </Link>
+        {/* )} */}
       </form>
     </div>
   );
